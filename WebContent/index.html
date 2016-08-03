@@ -1,4 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	hello butthole
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/Events.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("#getCache").click(function(){
+        HTTP.getCacheValue($("#cache").val());
+    });
+});
+</script>
+</head>
+<body>
+Cache Value: <input type="text" id="cache"><br>
+Result: <input type="text" id="result"><br>
+
+<button id="getCache">query</button>
+
+</body>
 </html>
