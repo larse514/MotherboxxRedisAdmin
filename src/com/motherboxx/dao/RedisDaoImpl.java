@@ -15,11 +15,15 @@ public class RedisDaoImpl implements RedisDao{
 	
 	@Override
 	public String getCacheValue(String key) {
-		System.out.println("I am here: " + key);
 		Jedis jedis = client.getClient();
-		System.out.println(jedis);
 		return jedis.get(key);
 	}
 
+	@Override
+	public String setValue(String key, String value) {
+		Jedis jedis = client.getClient();
+		return jedis.set(key, value);
+	}
+	
 	
 }

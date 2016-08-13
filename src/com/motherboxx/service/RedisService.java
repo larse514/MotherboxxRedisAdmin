@@ -27,4 +27,18 @@ public class RedisService {
 		return response;
 	}
 	
+	public boolean setValue(String key, String value){
+		//hash the key
+		String hashKey = hash.hashValue(key);
+		//now attempt to set it
+		//Response OK-Good
+		//Response null-Failed
+		String response = dao.setValue(hashKey, value);
+		if(response==null){
+			return false;
+		}
+		return true;
+		
+	}
+	
 }

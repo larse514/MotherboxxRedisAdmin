@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.motherboxx.constant.Constant;
+import com.motherboxx.constant.RedisResponseConstant;
+import com.motherboxx.dto.SetValueDto;
 import com.motherboxx.service.HealthService;
 import com.motherboxx.service.RedisService;
  
@@ -34,6 +37,20 @@ public class MainController {
     		return new ResponseEntity<>(value, HttpStatus.NOT_FOUND);
     	}
         return new ResponseEntity<>(value, HttpStatus.OK);
+    }
+	@RequestMapping(value = "/setValue", produces="application/json", method = RequestMethod.POST)
+    public ResponseEntity<String> getValue(@RequestBody SetValueDto dto) {
+		//get key and value
+		String key = dto.getKey();
+		String value = dto.getValue();
+		//call method
+		boolean result = service.setValue(key, value);
+		
+		//if key not found is return, return 404
+    	if(result){
+    		return new ResponseEntity<>(RedisResponseConstant.OK, HttpStatus.NOT_FOUND);
+    	}
+        return new ResponseEntity<>(RedisResponseConstant.FAILED_TO_SET, HttpStatus.OK);
     }
 	
 	@RequestMapping(value = "/healthCheck", produces="application/json", method = RequestMethod.GET)
