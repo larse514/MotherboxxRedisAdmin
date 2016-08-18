@@ -2,6 +2,7 @@ package com.motherboxx.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,8 +39,9 @@ public class MainController {
     	}
         return new ResponseEntity<>(value, HttpStatus.OK);
     }
-	@RequestMapping(value = "/setValue", produces="application/json", method = RequestMethod.POST)
-    public ResponseEntity<String> getValue(@RequestBody SetValueDto dto) {
+	@RequestMapping(value = "/setValue", produces=MediaType.APPLICATION_JSON_VALUE,
+			consumes=MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    public ResponseEntity<String> setValue(@RequestBody SetValueDto dto) {
 		//get key and value
 		String key = dto.getKey();
 		String value = dto.getValue();
