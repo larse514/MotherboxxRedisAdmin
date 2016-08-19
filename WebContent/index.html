@@ -10,7 +10,7 @@ $(document).ready(function(){
     $("#getCache").click(function(){
         HTTP.getCacheValue($("#cache").val());
     });
-    $("healthCheckBtn").click(function(){
+    $("healthCheckBtn").click(function("#isAlive"){
     	HTTP.healthCheck();
     });
 });
@@ -21,7 +21,9 @@ Cache Value: <input type="text" id="cache"><br>
 Result: <input type="text" id="result"><br>
 
 <button id="getCache">query</button>
+
 <button id="healthCheckBtn">isAlive</button>
+
 
 </body>
 </html>
