@@ -10,14 +10,7 @@
 		});
 	},
 	
-	healthCheck: function(isAlive)
-	{
-		$.ajax({
-		    url: 'http://motherboxxadminui-env.us-west-2.elasticbeanstalk.com/spring/getValue/' + isAlive,
-		    type: 'GET',
-		    success: RESPONSE.handleSuccess,
-		    error: RESPONSE.handleError
-	},
+
 
 	addCacheValue: function(data)
 	{
