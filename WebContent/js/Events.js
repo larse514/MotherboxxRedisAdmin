@@ -13,7 +13,7 @@
 	getHealthCheck: function()
 	{
 		$.ajax({
-		    url: 'http://motherboxxadminui-env.us-west-2.elasticbeanstalk.com/spring/healthCheck',
+		    url: 'http://motherboxxadminui-env.us-west-2.elasticbeanstalk.com/spring/healthCheck'
 		    type: 'GET',
 		    success: RESPONSE.handleStatus,
 		    error: RESPONSE.handleError
