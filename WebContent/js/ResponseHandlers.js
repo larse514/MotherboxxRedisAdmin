@@ -11,6 +11,6 @@
 	handleStatus: function(data, status){
 		alert(data + "Up " + status);
 		
-	},
+	}
 	
 }

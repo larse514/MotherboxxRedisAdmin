@@ -11,14 +11,18 @@ $(document).ready(function(){
         HTTP.getCacheValue($("#cache").val());
     });
     
+    
     $("#getHealthCHeck").click(function(){
     	HTTP.getHealthCheck();
-    	});
+    	}); 
     			
     });
+    
    
 });
 </script>
+
+
 </head>
 <body>
 Cache Value: <input type="text" id="cache"><br>
