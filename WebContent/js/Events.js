@@ -20,6 +20,16 @@
 		});
 	},
 	
+	getCacheTotal: function()
+	{
+		$.ajax({
+		    url: 'http://motherboxxadminui-env.us-west-2.elasticbeanstalk.com/spring/itemCheck',
+		    type: 'GET',
+		    success: RESPONSE.handleKeys,
+		    error: RESPONSE.handleError
+		});
+	},
+	
 
 
 	addCacheValue: function(data)

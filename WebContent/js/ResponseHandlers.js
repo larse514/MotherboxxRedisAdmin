@@ -11,6 +11,9 @@
 	handleStatus: function(data, status){
 		alert(data + "Up " + status);
 		
+	},
+	handleKeys: function(data, status){
+		alert(data + " keys in cache ");
+		
 	}
-	
 }
