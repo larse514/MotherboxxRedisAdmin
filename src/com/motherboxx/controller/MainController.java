@@ -38,12 +38,7 @@ public class MainController {
     	}
         return new ResponseEntity<>(value, HttpStatus.OK);
     }
-	//method
-	@RequestMapping(value = "/getCount/{key}", produces="application/json", method = RequestMethod.GET)
-    public ResponseEntity<Integer> getCount(@PathVariable("key") Integer key) {
-		Integer count = service.getCountTotal();
-        return new ResponseEntity<>(count, HttpStatus.OK);
-    }
+
 	@RequestMapping(value = "/setValue", produces=MediaType.APPLICATION_JSON_VALUE,
 			consumes=MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public ResponseEntity<String> setValue(@RequestBody SetValueDto dto) {
@@ -69,8 +64,8 @@ public class MainController {
 	// return number of keys in database
 	@RequestMapping(value = "/itemCheck", produces="application/json", method = RequestMethod.GET)
     public ResponseEntity<Integer> getCount(){
-    	
-        return new ResponseEntity<Integer>(10, null);
+		Integer count = service.getCountTotal();
+        return new ResponseEntity<>(count, HttpStatus.OK);
     }
 
 

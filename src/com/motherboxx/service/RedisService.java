@@ -16,8 +16,8 @@ public class RedisService {
 	HashService hash;
 	// added getCountTotal 8/24/2016
 	public Integer getCountTotal(){
-		Integer response = 10;
-		return response;
+		Integer count = 10;
+		return count;
 	}
 	
 	public String getCacheValue(String key){
