@@ -31,13 +31,18 @@ public class MainController {
 	HealthService health;
 	@RequestMapping(value = "/getValue/{key}", produces="application/json", method = RequestMethod.GET)
     public ResponseEntity<String> getValue(@PathVariable("key") String key) {
-		//get cache value
-		String value = service.getCacheValue(key);
+		String value = service.getCacheValue(key);//get cache value
 		//if key not found is return, return 404
     	if(value == Constant.KEY_NOT_FOUND){
     		return new ResponseEntity<>(value, HttpStatus.NOT_FOUND);
     	}
         return new ResponseEntity<>(value, HttpStatus.OK);
+    }
+	//method
+	@RequestMapping(value = "/getCount/{key}", produces="application/json", method = RequestMethod.GET)
+    public ResponseEntity<Integer> getCount(@PathVariable("key") Integer key) {
+		Integer count = service.getCountTotal();
+        return new ResponseEntity<>(count, HttpStatus.OK);
     }
 	@RequestMapping(value = "/setValue", produces=MediaType.APPLICATION_JSON_VALUE,
 			consumes=MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
@@ -60,4 +65,13 @@ public class MainController {
     	
         return new ResponseEntity<>(health.healthCheck(), HttpStatus.OK);
     }
+	
+	// return number of keys in database
+	@RequestMapping(value = "/itemCheck", produces="application/json", method = RequestMethod.GET)
+    public ResponseEntity<Integer> getCount(){
+    	
+        return new ResponseEntity<Integer>(10, null);
+    }
+
+
 }

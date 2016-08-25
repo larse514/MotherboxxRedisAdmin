@@ -14,6 +14,11 @@ public class RedisService {
 	RedisDao dao;
 	@Autowired
 	HashService hash;
+	// added getCountTotal 8/24/2016
+	public Integer getCountTotal(){
+		Integer response = 10;
+		return response;
+	}
 	
 	public String getCacheValue(String key){
 		//we need to hash each value since that is how the cache stores the values
