@@ -15,8 +15,8 @@ public class RedisService {
 	@Autowired
 	HashService hash;
 	// added getCountTotal 8/24/2016
-	public Integer getCountTotal(){
-		Integer count = 10;
+	public String getCountTotal(){
+		String count = "10";
 		return count;
 	}
 	

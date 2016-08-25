@@ -63,8 +63,8 @@ public class MainController {
 	
 	// return number of keys in database
 	@RequestMapping(value = "/itemCheck", produces="application/json", method = RequestMethod.GET)
-    public ResponseEntity<Integer> getCount(){
-		Integer count = service.getCountTotal();
+    public ResponseEntity<String> getCount(){
+		String count = service.getCountTotal();
         return new ResponseEntity<>(count, HttpStatus.OK);
     }
 
